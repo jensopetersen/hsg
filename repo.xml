@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta xmlns="http://exist-db.org/xquery/repo">
+    <description>The public website for the Office of the Historian</description>
+    <author>Joe Wicentowski</author>
+    <website>http://history.state.gov</website>
+    <status>alpha</status>
+    <license>GNU-LGPL</license>
+    <copyright>true</copyright>
+    <type>application</type>
+    <target>hsg</target>
+    <prepare>pre-install.xql</prepare>
+    <finish>post-install.xql</finish>
+    <permissions user="hsg-admin" group="hsg-admin" mode="rw-rw-r--"/>
+    <deployed>2014-11-26T09:59:26.455-05:00</deployed>
+</meta>

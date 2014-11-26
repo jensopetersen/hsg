@@ -1,0 +1,28 @@
+{
+  "name": "hsg",
+  "version": "3.0.0",
+  "authors": [
+    "Joe Wicentowski <joewiz@gmail.com>"
+  ],
+  "description": "history.state.gov",
+  "main": "path/to/main.css",
+  "keywords": [
+    "History",
+    "Diplomacy",
+    "U.S. Department of State"
+  ],
+  "license": "MIT",
+  "homepage": "http://history.state.gov",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "bigfoot": "~2.1.1"
+  }
+}
