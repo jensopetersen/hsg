@@ -13,7 +13,7 @@ This project is the beginning of a project to build a new history.state.gov:
 - Install git, npm, and ruby: `brew install git npm ruby`
 - Install [bower](http://bower.io/) and [grunt](http://gruntjs.com/): `npm install -g bower grunt-cli`
 - Install [bootstrap](https://github.com/twbs/bootstrap), [bigfoot.js](http://www.bigfootjs.com/), and their dependencies, as defined in the project's `bower.json` file: `bower install`
-- Install [Jekyll](http://jekyllrb.com/docs/installation/): `gem install jekyll`
+- Optional: follow directions below for installing local offline copy of bootstrap documentation
 
 ## Steps to reproduce my initial setup
 
@@ -22,7 +22,11 @@ This project is the beginning of a project to build a new history.state.gov:
 - Install [bower](http://bower.io/) and [grunt](http://gruntjs.com/): `npm install -g bower grunt-cli`
 - Install [bootstrap](https://github.com/twbs/bootstrap): `bower install bootstrap`
 - I ran `bower init` to create a bower.json file
-- Following bootstrap's [directions for installing Grunt](http://getbootstrap.com/getting-started/#grunt) I ran `npm install` in the bootstrap directory
-- Install [Jekyll](http://jekyllrb.com/docs/installation/) to be able to view bootstrap docs locally: `gem install jekyll`
-- But I had to run this to get around [jekyll installation errors](https://github.com/wayneeseguin/rvm/issues/2689#issuecomment-52753818) `brew unlink libyaml && brew link libyaml`
 - Used bower to install bigfoot, using the `save` flag to add bigfoot to the dependencies listed in bower.json: `bower install bigfoot --save`
+- Following bootstrap's [directions for installing Grunt](http://getbootstrap.com/getting-started/#grunt) I ran `npm install` in the bootstrap directory
+
+## To have a local copy of bootstrap documentation
+  - Clone [bootstrap](https://github.com/twbs/bootstrap) via `https://github.com/twbs/bootstrap.git`
+  - Install [Jekyll](http://jekyllrb.com/docs/installation/) to be able to view bootstrap docs locally: `gem install jekyll`
+  - But I had to run this to get around [jekyll installation errors](https://github.com/wayneeseguin/rvm/issues/2689#issuecomment-52753818) `brew unlink libyaml && brew link libyaml`
+  - In the bootstrap clone directory, run `jekyll serve`, then view bootstrap documentation at http://localhost:9001/
