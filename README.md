@@ -12,7 +12,7 @@ This project is the beginning of a project to build a new history.state.gov:
 - Install [homebrew](http://brew.sh#install)
 - Install git, npm, and ruby: `brew install git npm ruby`
 - Install [bower](http://bower.io/) and [grunt](http://gruntjs.com/): `npm install -g bower grunt-cli`
-- Install [bootstrap](https://github.com/twbs/bootstrap): `bower install bootstrap`
+- Install [bootstrap](https://github.com/twbs/bootstrap), [bigfoot.js](http://www.bigfootjs.com/), and their dependencies, as defined in the project's `bower.json` file: `bower install`
 - Install [Jekyll](http://jekyllrb.com/docs/installation/): `gem install jekyll`
 
 ## Steps to reproduce my initial setup
