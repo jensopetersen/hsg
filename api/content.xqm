@@ -54,7 +54,13 @@ declare function c:fallback($message as xs:string) {
 
 declare function c:homepage() {
     let $title := 'Homepage'
-    let $content := <h1 xmlns="http://www.w3.org/1999/xhtml">{$title}</h1>
+    let $content := 
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <h1>{$title}</h1>
+            <ul>
+                <li><a href="hsg/historicaldocuments">Historical Documents</a></li>
+            </ul>
+        </div>
     return
         c:wrap-html($title, $content)    
 };
