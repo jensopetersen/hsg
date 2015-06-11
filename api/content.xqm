@@ -15,25 +15,25 @@ declare function c:wrap-html($title as xs:string, $content as node()*) {
             <title>{$title}</title>
 
             <!-- Bootstrap -->
-            <link rel="stylesheet" href="/apps/hsg/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-            <link rel="stylesheet" href="/apps/hsg/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
-            <script src="/apps/hsg/bower_components/bootstrap/dist/js/bootstrap.min.js"/>
+            <link rel="stylesheet" href="/exist/apps/hsg/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="/exist/apps/hsg/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+            <script src="/exist/apps/hsg/bower_components/bootstrap/dist/js/bootstrap.min.js"/>
 
             <!-- bigfoot -->
-            <link rel="stylesheet" href="/apps/hsg/bower_components/bigfoot/dist/bigfoot-number.css"/>
+            <link rel="stylesheet" href="/exist/apps/hsg/bower_components/bigfoot/dist/bigfoot-number.css"/>
 
             <!-- Hsg -->
-            <link rel="stylesheet" href="/apps/hsg/style.css"/>
+            <link rel="stylesheet" href="/exist/apps/hsg/style.css"/>
         </head>
         <body>
             <div class="container">{$content}</div>
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-            <script src="/apps/hsg/bower_components/jquery/dist/jquery.min.js"/>
+            <script src="/exist/apps/hsg/bower_components/jquery/dist/jquery.min.js"/>
             <!-- Include all Bootstrap compiled plugins -->
-            <script src="/apps/hsg/bower_components/bootstrap/dist/js/bootstrap.min.js"/>
+            <script src="/exist/apps/hsg/bower_components/bootstrap/dist/js/bootstrap.min.js"/>
             
             <!-- bigfoot.js -->
-            <script type="text/javascript" src="/apps/hsg/bower_components/bigfoot/dist/bigfoot.min.js"/>
+            <script type="text/javascript" src="/exist/apps/hsg/bower_components/bigfoot/dist/bigfoot.min.js"/>
             <script type="text/javascript">
                 var bigfoot = $.bigfoot(
                     {{
