@@ -98,7 +98,7 @@ declare function c:historicaldocuments($section, $subsection) {
 };
 
 declare function c:frus-vol($vol-id as xs:string) {
-    doc(concat('/db/cms/apps/tei-content/data/frus-volumes/', $vol-id, '.xml'))
+    doc(concat('/db/data/frus-master/volumes/', $vol-id, '.xml'))
 };
 
 declare function c:frus-section($vol-id as xs:string, $section-id as xs:string) {
