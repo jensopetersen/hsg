@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://expath.org/ns/pkg" name="http://history.state.gov/ns/public-site" abbrev="hsg" version="3.0" spec="1.0">
     <title>history.state.gov</title>
+    <dependency package="http://exist-db.org/apps/monex"/>
     <dependency package="http://exist-db.org/apps/shared"/>
+    <dependency package="http://www.functx.com"/>
+    <dependency processor="http://exist-db.org" semver-min="2.1.0" semver-max="3.0.0"/>
 </package>
