@@ -28,4 +28,5 @@ declare function local:mkcol($collection, $path) {
 };
 
 (: create empty dirs :)
-local:mkcol("/db/apps/hsg", "resources/odd/compiled")
+local:mkcol("/db/apps/hsg", "resources/odd/compiled"),
+local:mkcol("/db", "temp")
