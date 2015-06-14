@@ -15,7 +15,7 @@ let $start-time := util:system-time()
 let $log := console:log('starting download of frus data')
 let $result := 
     try {
-        let $url := 'https://github.com/HistoryAtState/frus/archive/frus-tei-simple.zip'
+        let $url := 'https://github.com/HistoryAtState/frus/archive/tei-simple.zip'
         let $temp := '/db/temp'
         let $download := download:http-download($url, $temp)
         let $log := console:log(concat('downloaded ', $url, ' to ', $temp))
