@@ -2,7 +2,7 @@ xquery version "3.0";
 
 module namespace urls = "http://history.state.gov/ns/site/urls";
 
-import module namespace c = "http://history.state.gov/ns/site/content" at "content.xqm";
+import module namespace c = "http://history.state.gov/ns/site/content" at "../modules/content.xqm";
 
 declare namespace rest = "http://exquery.org/ns/restxq";
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";

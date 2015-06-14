@@ -2,7 +2,9 @@ xquery version "3.0";
 
 module namespace c = "http://history.state.gov/ns/site/content";
 
-import module namespace t2h="http://history.state.gov/ns/site/tei-to-html" at "tei-to-html.xqm";
+import module namespace config="http://exist-db.org/apps/appblueprint/config" at "config.xqm";
+import module namespace pmu="http://www.tei-c.org/tei-simple/xquery/util" at "/db/apps/tei-simple/content/util.xql";
+import module namespace odd="http://www.tei-c.org/tei-simple/odd2odd" at "/db/apps/tei-simple/content/odd2odd.xql";
 
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -24,6 +26,7 @@ declare function c:wrap-html($title as xs:string, $content as node()*) {
 
             <!-- Hsg -->
             <link rel="stylesheet" href="/exist/apps/hsg/style.css"/>
+            <link rel="stylesheet" href="/exist/apps/hsg/resources/odd/frus.css"/>
         </head>
         <body>
             <div class="container">{$content}</div>
@@ -73,7 +76,11 @@ declare function c:historicaldocuments-landing-page() {
             <p>Landing page</p>
             <ul>
                 <li><a href="historicaldocuments/ebooks">Ebooks</a></li>
-                <li><a href="historicaldocuments/frus1969-76v24">frus1969-76v24</a></li>
+                {
+                for $vol-id in c:frus-vol-ids()
+                return
+                    <li><a href="historicaldocuments/{$vol-id}">{$vol-id}</a></li>
+                }
             </ul>
         </div>
     return
@@ -104,7 +111,11 @@ declare function c:historicaldocuments($section, $subsection) {
 };
 
 declare function c:frus-vol($vol-id as xs:string) {
-    doc(concat('/db/data/frus-master/volumes/', $vol-id, '.xml'))
+    doc(concat('/db/data/frus-tei-simple/volumes/', $vol-id, '.xml'))
+};
+
+declare function c:frus-vol-ids() as xs:string* {
+    collection('/db/data/frus-tei-simple/volumes/')/tei:TEI/@xml:id
 };
 
 declare function c:frus-section($vol-id as xs:string, $section-id as xs:string) {
@@ -148,10 +159,10 @@ declare function c:frus-section($vol-id as xs:string, $section-id as xs:string) 
             <h1>{$title}</h1>
             <h2>{c:frus-vol-title($vol-id)}</h2>
             {
-            switch ($section-type)
-                case "document" return t2h:render($section, ())
-                case "section" return t2h:render($section, ())
-                default return <p class="bg-warning text-warning">Unknown type</p>
+            (: pmu:process requires write access to the generated directory. TODO find a better way. :)
+            let $login := xmldb:login('/db', 'admin', '')
+            return
+                pmu:process(odd:get-compiled($config:odd-root, $config:odd, $config:compiled-odd), $section, $config:odd-root, "web", "../resources/odd", $config:pm-config)
             }
         </div>
     return

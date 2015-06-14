@@ -16,7 +16,7 @@ declare option output:media-type "text/html";
         </thead>
         <tbody>
             {
-                for $collection in ('/db/data/frus-master', '/db/temp')
+                for $collection in ('/db/temp', '/db/data/frus-tei-simple', '/db/apps/hsg/resources/odd')
                 return
                     <tr>
                         <td>{$collection}</td>
@@ -33,6 +33,7 @@ declare option output:media-type "text/html";
     <h2>Setup</h2>
     <ul>
         <li><a href="get-frus.xq">Download FRUS data</a></li>
+        <li><a href="prepare-for-tei-simple.xq">Prepare for TEI Simple</a></li>
         <li><a href="/exist/restxq/hsg">Start hsg</a></li>
     </ul>
 </div>

@@ -12,19 +12,25 @@ declare option output:media-type "text/html";
 
 let $login := xmldb:login('/db', 'admin', '') (: TODO replace with proper method for logging in / write access :)
 let $start-time := util:system-time()
-let $log := console:log('starting download of frus data')
+let $log := console:log('preparing files needed for tei simple')
 let $result := 
     try {
-        let $url := 'https://github.com/HistoryAtState/frus/archive/frus-tei-simple.zip'
-        let $temp := '/db/temp'
-        let $download := download:http-download($url, $temp)
-        let $log := console:log(concat('downloaded ', $url, ' to ', $temp))
-        let $destination := '/db/data'
-        let $log := console:log(concat('starting to unzip ', $download, ' to ', $destination))
-        let $unzip := unzip:unzip($download, $destination)
+        let $tei-simple-odd-collection := '/db/apps/tei-simple/odd'
+        let $tei-simple-odd-files := ('teisimple.odd', 'elementsummary.xml', 'headeronly.xml', 'simpleelements.xml')
+        let $frus-odd-collection := '/db/data/frus-tei-simple/schema/'
+        let $frus-odd-file := 'frus.odd'
+        let $destination := '/db/apps/hsg/resources/odd'
+        let $copy := 
+            (
+            for $file in $tei-simple-odd-files
+            return
+                xmldb:copy($tei-simple-odd-collection, $destination, $file)
+            ,
+            xmldb:copy($frus-odd-collection, $destination, $frus-odd-file)
+            )
         let $end-time := util:system-time()
         return
-            <p class="text-success">{$url} successfully downloaded to {$download} and unzipped {$unzip/@count-stored/string()} items to {$destination}. Unable to store {$unzip/@count-unable-to-store/string()} items.  Completion took {$end-time - $start-time}.</p>
+            <p class="text-success">successfully copied needed ODD files into place.  Completion took {$end-time - $start-time}.</p>
     } catch * {
         let $error := 
             concat('Error while downloading frus data: ', 
@@ -37,7 +43,7 @@ let $result :=
     }
 return
     <div>
-        <h1>Get FRUS Results</h1>
+        <h1>Prepare for TEI Simple</h1>
         {$result}
         <p><a href="index.xq">Back to index</a></p>
     </div>
