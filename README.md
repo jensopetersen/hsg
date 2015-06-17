@@ -7,6 +7,8 @@ This project is the beginning of a project to build a new history.state.gov:
 - Using [bower](http://bower.io/) to handle CSS and Javascript dependencies
 - Using RestXQ to handle URL rewriting within eXist, and separate URL and content concerns
 
+See the [wiki](https://github.com/joewiz/hsg/wiki) for notes on the project
+
 ## Steps to get set up for development once you've cloned this repository
 
 - Install [homebrew](http://brew.sh#install), or if already installed: `brew update && brew upgrade`
